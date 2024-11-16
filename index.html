@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Wilderness Glamping</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.4-rc.1/web3.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <style>
         .hero{background:url('/api/placeholder/1200/600') center/cover;height:600px}
-        .site-card{transition:.3s}
+        .site-card,.payment-method{transition:.3s}
         .site-card:hover{transform:translateY(-5px)}
         .payment-method:hover{background:#f7fafc;transform:scale(1.05)}
+        .crypto-address{word-break:break-all;font-family:monospace}
     </style>
 </head>
 <body class="bg-gray-50">
@@ -19,9 +20,9 @@
         <div class="max-w-7xl mx-auto px-4 flex justify-between items-center py-4">
             <div class="text-xl font-bold">Wilderness Glamping</div>
             <div class="space-x-6">
-                <a href="#sites" class="text-gray-600 hover:text-gray-900">Sites</a>
-                <a href="#features" class="text-gray-600 hover:text-gray-900">Features</a>
-                <a href="#booking" class="text-gray-600 hover:text-gray-900">Book</a>
+                <a href="#sites">Sites</a>
+                <a href="#features">Features</a>
+                <a href="#booking">Book</a>
             </div>
         </div>
     </nav>
@@ -36,21 +37,21 @@
 
     <section id="features" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-16">Our Features</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="text-center p-6">
+            <h2 class="text-4xl font-bold text-center mb-16">Features</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="p-6">
                     <div class="text-4xl mb-4">🏕️</div>
-                    <h3 class="text-xl font-bold mb-2">Luxury Sites</h3>
+                    <h3 class="text-xl font-bold">Luxury Sites</h3>
                     <p class="text-gray-600">Premium camping with modern amenities</p>
                 </div>
-                <div class="text-center p-6">
+                <div class="p-6">
                     <div class="text-4xl mb-4">💧</div>
-                    <h3 class="text-xl font-bold mb-2">Creek & Falls</h3>
-                    <p class="text-gray-600">Natural water features throughout</p>
+                    <h3 class="text-xl font-bold">Creek & Falls</h3>
+                    <p class="text-gray-600">Natural water features</p>
                 </div>
-                <div class="text-center p-6">
+                <div class="p-6">
                     <div class="text-4xl mb-4">🏛️</div>
-                    <h3 class="text-xl font-bold mb-2">Community Dome</h3>
+                    <h3 class="text-xl font-bold">Community Dome</h3>
                     <p class="text-gray-600">Central gathering space</p>
                 </div>
             </div>
@@ -62,10 +63,10 @@
             <h2 class="text-4xl font-bold text-center mb-16">Available Sites</h2>
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="site-card bg-white rounded-lg shadow-lg">
-                    <img src="/api/placeholder/400/300" alt="Creek View" class="w-full h-48 object-cover">
+                    <img src="/api/placeholder/400/300" alt="Creek" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-2">Creek View</h3>
-                        <p class="text-gray-600 mb-4">Peaceful creekside camping</p>
+                        <p class="text-gray-600 mb-4">Peaceful creekside spot</p>
                         <div class="flex justify-between items-center">
                             <span class="text-lg font-bold">$150/night</span>
                             <button onclick="selectSite('creek-view')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Select</button>
@@ -73,7 +74,7 @@
                     </div>
                 </div>
                 <div class="site-card bg-white rounded-lg shadow-lg">
-                    <img src="/api/placeholder/400/300" alt="Cave Site" class="w-full h-48 object-cover">
+                    <img src="/api/placeholder/400/300" alt="Cave" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-2">Cave Site</h3>
                         <p class="text-gray-600 mb-4">Near natural caves</p>
@@ -84,7 +85,7 @@
                     </div>
                 </div>
                 <div class="site-card bg-white rounded-lg shadow-lg">
-                    <img src="/api/placeholder/400/300" alt="Forest Site" class="w-full h-48 object-cover">
+                    <img src="/api/placeholder/400/300" alt="Forest" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-2">Forest Site</h3>
                         <p class="text-gray-600 mb-4">Secluded forest spot</p>
@@ -104,7 +105,7 @@
             <form id="bookingForm" class="space-y-6">
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-gray-700 mb-2">Check-in Date</label>
+                        <label class="block text-gray-700 mb-2">Check-in</label>
                         <input type="date" class="w-full p-3 border rounded" required>
                     </div>
                     <div>
@@ -117,9 +118,9 @@
                     </div>
                 </div>
                 <div class="space-y-4">
-                    <input type="text" id="customerName" placeholder="Your Name" class="w-full p-3 border rounded" required>
-                    <input type="email" id="customerEmail" placeholder="Email Address" class="w-full p-3 border rounded" required>
-                    <input type="tel" id="customerPhone" placeholder="Phone Number" class="w-full p-3 border rounded" required>
+                    <input type="text" id="customerName" placeholder="Name" class="w-full p-3 border rounded" required>
+                    <input type="email" id="customerEmail" placeholder="Email" class="w-full p-3 border rounded" required>
+                    <input type="tel" id="customerPhone" placeholder="Phone" class="w-full p-3 border rounded" required>
                     <input type="text" id="selectedSite" class="w-full p-3 border rounded bg-gray-100" readonly>
                 </div>
                 <div>
@@ -146,64 +147,80 @@
 
     <script>
         emailjs.init("SuOgNezCipUt4Didi");
-        const config = {
-            adminEmail: 'onebab1111@gmail.com',
-            payments: {
-                cashapp: {username: '$YourCashApp', note: 'Glamping Booking'},
-                venmo: {username: '@YourVenmo', note: 'Glamping Booking'}
-            },
-            prices: {
-                'creek-view': 150,
-                'cave-site': 175,
-                'forest-site': 160
-            }
-        };
-        let selectedPayment = '';
-        let web3;
+        const cfg={email:'onebab1111@gmail.com',pay:{cashapp:'$humanbeingcash',venmo:'@YourVenmo',crypto:{eth:'0xAd5552d4195787ea82ed637C9E039C7A8a5F7Bc5',btc:'bc1qlvendj0h82ng4ckzawgaectx95c58fk7h0elss'}},prices:{'creek-view':150,'cave-site':175,'forest-site':160}};
+        let selectedPay='',web3;
 
-        async function initWeb3() {
-            if (window.ethereum) {
-                web3 = new Web3(window.ethereum);
-                try {
-                    await window.ethereum.request({method: 'eth_requestAccounts'});
-                } catch (e) {
-                    console.error("User denied account access");
-                }
-            }
-        }
+        const copyToClipboard = str => {
+            const el = document.createElement('textarea');
+            el.value = str;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            alert('Address copied to clipboard!');
+        };
 
         function selectSite(site) {
             document.getElementById('selectedSite').value = site;
-            document.getElementById('booking').scrollIntoView({behavior: 'smooth'});
+            document.getElementById('booking').scrollIntoView({behavior:'smooth'});
         }
 
         function selectPayment(method) {
-            selectedPayment = method;
+            selectedPay = method;
             document.querySelectorAll('.payment-method').forEach(el => 
                 el.classList.toggle('bg-blue-50', el.textContent.toLowerCase().includes(method)));
         }
 
+        function showCryptoModal(type) {
+            const addr = type === 'ethereum' ? cfg.pay.crypto.eth : cfg.pay.crypto.btc;
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4';
+            modal.innerHTML = `
+                <div class="bg-white p-6 rounded-lg max-w-md w-full">
+                    <h3 class="text-xl font-bold mb-4">${type.charAt(0).toUpperCase() + type.slice(1)} Payment</h3>
+                    <div class="bg-gray-100 p-3 rounded mb-4 crypto-address" onclick="copyToClipboard('${addr}')">${addr}</div>
+                    <p class="text-sm text-gray-600 mb-4">Click address to copy</p>
+                    ${type === 'ethereum' ? `
+                    <button onclick="connectWallet('${addr}')" class="bg-blue-600 text-white px-4 py-2 rounded w-full mb-2">
+                        Connect Wallet (Optional)
+                    </button>` : ''}
+                    <button onclick="this.parentElement.parentElement.remove()" class="bg-gray-600 text-white px-4 py-2 rounded w-full">
+                        Close
+                    </button>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        async function connectWallet(addr) {
+            if (typeof window.ethereum !== 'undefined') {
+                try {
+                    web3 = new Web3(window.ethereum);
+                    await window.ethereum.request({method: 'eth_requestAccounts'});
+                    const accounts = await web3.eth.getAccounts();
+                    alert(`Wallet connected: ${accounts[0]}`);
+                } catch (e) {
+                    alert('Wallet connection failed. You can still send manually to the address shown.');
+                }
+            } else {
+                alert('Web3 wallet not found. You can still send manually to the address shown.');
+            }
+        }
+
         function handlePayment(method, amount) {
             const payments = {
-                cashapp: () => window.open(`https://cash.app/${config.payments.cashapp.username}/${amount}`, '_blank'),
-                venmo: () => window.open(`https://venmo.com/${config.payments.venmo.username}?txn=pay&amount=${amount}`, '_blank'),
-                crypto: async () => {
-                    if (!web3) await initWeb3();
-                    const accounts = await web3.eth.getAccounts();
-                    await web3.eth.sendTransaction({
-                        from: accounts[0],
-                        to: 'YOUR_WALLET_ADDRESS',
-                        value: web3.utils.toWei(amount.toString(), 'ether')
-                    });
-                }
+                cashapp: () => window.open(`https://cash.app/${cfg.pay.cashapp}/${amount}`, '_blank'),
+                venmo: () => window.open(`https://venmo.com/${cfg.pay.venmo}?txn=pay&amount=${amount}`, '_blank'),
+                ethereum: () => showCryptoModal('ethereum'),
+                bitcoin: () => showCryptoModal('bitcoin')
             };
-            return (payments[method] || payments.crypto)();
+            return payments[method]();
         }
 
         async function sendBookingEmail(details) {
             try {
                 await emailjs.send("service_h2nw9a9", "template_33lho89", {
-                    to_email: config.adminEmail,
+                    to_email: cfg.email,
                     booking_ref: `BK-${Date.now().toString().slice(-6)}`,
                     customer_name: details.name,
                     customer_email: details.email,
@@ -225,6 +242,10 @@
 
         document.getElementById('bookingForm').addEventListener('submit', async (e) => {
             e.preventDefault();
+            if (!selectedPay) {
+                alert('Please select a payment method');
+                return;
+            }
             const form = e.target;
             const details = {
                 name: form.querySelector('#customerName').value,
@@ -233,14 +254,12 @@
                 site: form.querySelector('#selectedSite').value,
                 date: form.querySelector('input[type="date"]').value,
                 nights: form.querySelector('select').value,
-                payment: selectedPayment,
-                amount: config.prices[form.querySelector('#selectedSite').value] * form.querySelector('select').value
+                payment: selectedPay,
+                amount: cfg.prices[form.querySelector('#selectedSite').value] * form.querySelector('select').value
             };
-            await handlePayment(selectedPayment, details.amount);
+            handlePayment(selectedPay, details.amount);
             await sendBookingEmail(details);
         });
-
-        window.addEventListener('load', initWeb3);
     </script>
 </body>
 </html>
