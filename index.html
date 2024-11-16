@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wilderness Glamping Experience</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        .hero {
+            background-image: url('/api/placeholder/1200/600');
+            background-size: cover;
+            background-position: center;
+            height: 600px;
+        }
+        
+        .site-card {
+            transition: transform 0.3s ease;
+        }
+        
+        .site-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: #2d3748;
+        }
+
+        .payment-method {
+            transition: all 0.3s ease;
+        }
+
+        .payment-method:hover {
+            background-color: #f7fafc;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-xl font-bold text-gray-800">Wilderness Glamping</div>
+                <div class="space-x-6">
+                    <a href="#sites" class="text-gray-600 hover:text-gray-900">Available Sites</a>
+                    <a href="#features" class="text-gray-600 hover:text-gray-900">Features</a>
+                    <a href="#booking" class="text-gray-600 hover:text-gray-900">Book Now</a>
+                    <a href="#contact" class="text-gray-600 hover:text-gray-900">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero flex items-center justify-center">
+        <div class="text-center text-white bg-black bg-opacity-50 p-8 rounded-lg">
+            <h1 class="text-5xl font-bold mb-4">Experience Nature in Style</h1>
+            <p class="text-xl mb-8">Reserve your future spot in our upcoming luxury glamping paradise</p>
+            <a href="#booking" class="bg-white text-gray-900 px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition duration-300">
+                Book Your Adventure
+            </a>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16">Natural Paradise Features</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-6">
+                    <div class="feature-icon mb-4">🏕️</div>
+                    <h3 class="text-xl font-bold mb-2">Luxury Glamping Sites</h3>
+                    <p class="text-gray-600">Premium camping locations with modern amenities</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="feature-icon mb-4">💧</div>
+                    <h3 class="text-xl font-bold mb-2">Creek & Waterfalls</h3>
+                    <p class="text-gray-600">Natural water features throughout the property</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="feature-icon mb-4">🏛️</div>
+                    <h3 class="text-xl font-bold mb-2">Community Dome</h3>
+                    <p class="text-gray-600">Central gathering space for events and activities</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Available Sites Section -->
+    <section id="sites" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16">Available Sites</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Creek View Site -->
+                <div class="site-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="/api/placeholder/400/300" alt="Creek View Site" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Creek View Site</h3>
+                        <p class="text-gray-600 mb-4">Peaceful camping spot next to our beautiful creek</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold">$150/night</span>
+                            <button onclick="selectSite('creek-view')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                                Select
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cave Site -->
+                <div class="site-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="/api/placeholder/400/300" alt="Cave Site" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Cave Site</h3>
+                        <p class="text-gray-600 mb-4">Unique camping experience near natural caves</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold">$175/night</span>
+                            <button onclick="selectSite('cave-site')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                                Select
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Forest Retreat -->
+                <div class="site-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="/api/placeholder/400/300" alt="Forest Retreat" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Forest Retreat</h3>
+                        <p class="text-gray-600 mb-4">Secluded spot surrounded by mature trees</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold">$160/night</span>
+                            <button onclick="selectSite('forest-retreat')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                                Select
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16">Reserve Your Stay</h2>
+            <div class="max-w-2xl mx-auto">
+                <form id="bookingForm" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-gray-700 mb-2">Check-in Date</label>
+                            <input type="date" class="w-full p-3 border rounded" required>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">Number of Nights</label>
+                            <select class="w-full p-3 border rounded" required>
+                                <option value="2">2 Nights</option>
+                                <option value="3">3 Nights</option>
+                                <option value="4">4 Nights</option>
+                                <option value="5">5+ Nights</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-700 mb-2">Selected Site</label>
+                        <input type="text" id="selectedSite" class="w-full p-3 border rounded bg-gray-100" readonly>
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-700 mb-2">Payment Method</label>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div class="payment-method p-4 border rounded text-center cursor-pointer" onclick="selectPayment('credit-card')">
+                                💳 Credit Card
+                            </div>
+                            <div class="payment-method p-4 border rounded text-center cursor-pointer" onclick="selectPayment('paypal')">
+                                PayPal
+                            </div>
+                            <div class="payment-method p-4 border rounded text-center cursor-pointer" onclick="selectPayment('bitcoin')">
+                                ₿ Bitcoin
+                            </div>
+                            <div class="payment-method p-4 border rounded text-center cursor-pointer" onclick="selectPayment('ethereum')">
+                                Ξ Ethereum
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition duration-300">
+                        Complete Reservation
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <p>Email: info@wildernessglamping.com</p>
+                    <p>Phone: (555) 123-4567</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Location</h3>
+                    <p>123 Nature Way</p>
+                    <p>Wilderness, ST 12345</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-gray-300">Instagram</a>
+                        <a href="#" class="hover:text-gray-300">Facebook</a>
+                        <a href="#" class="hover:text-gray-300">Twitter</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Site selection
+        function selectSite(siteId) {
+            document.getElementById('selectedSite').value = siteId;
+            document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Payment method selection
+        function selectPayment(method) {
+            // Remove active class from all payment methods
+            document.querySelectorAll('.payment-method').forEach(el => {
+                el.classList.remove('bg-blue-50', 'border-blue-500');
+            });
+            
+            // Add active class to selected method
+            event.currentTarget.classList.add('bg-blue-50', 'border-blue-500');
+        }
+
+        // Form submission
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your reservation! We will contact you shortly with payment details.');
+        });
+    </script>
+</body>
+</html>
